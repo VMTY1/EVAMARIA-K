@@ -18,7 +18,7 @@ def get_ping():
     speedtester.get_best_server()
     ping = speedtester.results.ping
     return ping
-ALIVE = "<b>ʜɪ ɪ ᴀᴍ ᴀʟɪɴᴇ ʙʀᴜʜ🥵</b>"
+
 
 
 #_______RESTART______   
@@ -160,10 +160,8 @@ async def report_user(bot, message):
         if success:
             await message.reply_text(script.REPRT_MSG)
           
-#ping and alive command
-@Client.on_message(filters.command("alive", "/") & f_onw_fliter)
-async def check_alive(_, message):
-    await message.reply_text(ALIVE)
+#ping  command
+
 
 
 @Client.on_message(filters.command("ping", prefixes='/') & filters.private)
@@ -245,42 +243,7 @@ def dkick(client, message):
     message.delete()
 
   
-@Client.on_message((filters.channel | filters.group) & filters.command('instatus'))
-def instatus(client, message):
-    sent_message = message.reply_text("🔁 Processing.....")
-    recently = 0
-    within_week = 0
-    within_month = 0
-    long_time_ago = 0
-    deleted_acc = 0
-    uncached = 0
-    bot = 0
-    for member in client.get_chat_members(message.chat.id, limit=int(10000)):
-      user = member.user
-      if user.is_deleted:
-        deleted_acc += 1
-      elif user.is_bot:
-        bot += 1
-      elif user.status == enums.UserStatus.RECENTLY:
-        recently += 1
-      elif user.status == enums.UserStatus.LAST_WEEK:
-        within_week += 1
-      elif user.status == enums.UserStatus.LAST_MONTH:
-        within_month += 1
-      elif user.status == enums.UserStatus.LONG_AGO:
-        long_time_ago += 1
-      else:
-        uncached += 1
 
-    chat_type = message.chat.type
-    if chat_type == enums.ChatType.CHANNEL:
-         sent_message.edit(f"{message.chat.title}\nChat Member Status\n\nRecently - {recently}\nWithin Week - {within_week}\nWithin Month - {within_month}\nLong Time Ago - {long_time_ago}\n\nDeleted Account - {deleted_acc}\nBot - {bot}\nUnCached - {uncached}")            
-    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        user = client.get_chat_member(message.chat.id, message.from_user.id)
-        if user.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER, ADMINS):
-            sent_message.edit(f"{message.chat.title}\nChat Member Status\n\nRecently - {recently}\nWithin Week - {within_week}\nWithin Month - {within_month}\nLong Time Ago - {long_time_ago}\n\nDeleted Account - {deleted_acc}\nBot - {bot}\nUnCached - {uncached}")
-        else:
-            sent_message.edit("you are not administrator in this chat")
 
 
   
