@@ -10,11 +10,9 @@ git+https://github.com/Joelkb/cinemagoer
 datetime
 pytz
 aiohttp==3.7.4
-pyshorteners
 speedtest-cli
 aiofiles
 dnspython==2.3.0
-python-math
 psutil==5.9.4
-Pillow
+
 
