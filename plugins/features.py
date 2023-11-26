@@ -8,6 +8,7 @@ from plugins.helper_functions.admin_check import admin_check
 from Script import script
 from plugins.helper_functions.extract import extract_time, extract_user
 from plugins.helper_functions.cust_p_filters import f_onw_fliter
+from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, UserAdminInvalid
