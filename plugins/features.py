@@ -29,6 +29,19 @@ async def stop_button(bot, message):
     await msg.edit("**✅️ 𝙱𝙾𝚃 𝙸𝚂 𝚁𝙴𝚂𝚃𝙰𝚁𝚃𝙴𝙳. 𝙽𝙾𝚆 𝚈𝙾𝚄 𝙲𝙰𝙽 𝚄𝚂𝙴 𝙼𝙴**")
     os.execl(sys.executable, sys.executable, *sys.argv)
 
+@Client.on_message(filters.command('manage') & filters.group)
+async def members_management(client, message):
+  if not await is_check_admin(client, message.chat.id, message.from_user.id):
+    return await message.reply_text('You not admin in this group.')
+  btn = [[
+    InlineKeyboardButton('Unmute All', callback_data=f'unmute_all_members'),
+    InlineKeyboardButton('Unban All', callback_data=f'unban_all_members')
+  ],[
+    InlineKeyboardButton('Kick Muted Users', callback_data=f'kick_muted_members'),
+    InlineKeyboardButton('Kick Deleted Accounts', callback_data=f'kick_deleted_accounts_members')
+  ]]
+  await message.reply_text("Select one of function to manage members.", reply_markup=InlineKeyboardMarkup(btn))
+  
 #________PURGE______
 
 @Client.on_message(filters.command("purge") & (filters.group | filters.channel))                   
