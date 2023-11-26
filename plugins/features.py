@@ -3,6 +3,7 @@ import random
 from pyrogram import Client, filters, enums
 from pyrogram.types import *
 from info import ADMINS
+from utils import is_check_admin
 from time import time, sleep
 from plugins.helper_functions.admin_check import admin_check
 from Script import script
