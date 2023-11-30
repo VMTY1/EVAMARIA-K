@@ -18,12 +18,34 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+@Client.on_message(filters.command("gsend") & filters.user(ADMINS))
+async def send_chatmsg(bot, message):
+    if message.reply_to_message:
+        target_id = message.text
+        command = ["/gsend"]
+        for cmd in command:
+            if cmd in target_id:
+                target_id = target_id.replace(cmd, "")
+        success = False
+        try:
+            chat = await bot.get_chat(int(target_id))
+            await message.reply_to_message.copy(int(chat.id))
+            success = True
+        except Exception as e:
+            await message.reply_text(f"<b>Eʀʀᴏʀ :- <code>{e}</code></b>")
+        if success:
+            await message.reply_text(f"<b>Yᴏᴜʀ Mᴇssᴀɢᴇ Hᴀs Bᴇᴇɴ Sᴜᴄᴇssғᴜʟʟʏ Sᴇɴᴅ To {chat.id}.</b>")
+        else:
+            await message.reply_text("<b>Aɴ Eʀʀᴏʀ Oᴄᴄᴜʀʀᴇᴅ !</b>")
+    else:
+        await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
+        
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', callback_data='https://t.me/KOMBOTZZ')
+                InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ')
             ],
             [
                 InlineKeyboardButton('⚙️ʜᴇʟᴩ⚙️', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -45,12 +67,12 @@ async def start(client, message):
             InlineKeyboardButton('⚡️ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs⚡️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('🪄sᴇᴀʀᴄʜ🪄', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ')
+            InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ'
+            ],[
+            InlineKeyboardButton('🌝ᴏᴡɴᴇʀ ɪɴғᴏ🌝', url='https://t.me/luttappimovie')
             ],[
             InlineKeyboardButton('⚙️ʜᴇʟᴩ⚙️', callback_data='help'),
             InlineKeyboardButton('📍ᴀʙᴏᴜᴛ📍', callback_data='about')
-            ],[
-            InlineKeyboardButton('🌝ᴏᴡɴᴇʀ ɪɴғᴏ🌝', url='https://t.me/luttappimovie')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -90,15 +112,15 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('⚡️ᴀᴅᴅ ᴍᴇ ᴛᴏ yᴏᴜʀ ɢʀᴏᴜᴩꜱ⚡️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('⚡️ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs⚡️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🪄ꜱᴇᴀʀᴄʜ🪄', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ')
+            InlineKeyboardButton('🪄sᴇᴀʀᴄʜ🪄', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ'
+            ],[
+            InlineKeyboardButton('🌝ᴏᴡɴᴇʀ ɪɴғᴏ🌝', url='https://t.me/luttappimovie')
             ],[
             InlineKeyboardButton('⚙️ʜᴇʟᴩ⚙️', callback_data='help'),
             InlineKeyboardButton('📍ᴀʙᴏᴜᴛ📍', callback_data='about')
-            ],[
-            InlineKeyboardButton('🌝ᴏᴡɴᴇʀ ɪɴғᴏ🌝', url='https://t.me/luttappimovie')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
