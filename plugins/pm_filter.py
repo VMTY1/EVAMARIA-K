@@ -410,7 +410,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⚡️ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs⚡️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('🪄sᴇᴀʀᴄʜ🪄', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ'
+            InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ')
             ],[
             InlineKeyboardButton('🌝ᴏᴡɴᴇʀ ɪɴғᴏ🌝', url='https://t.me/luttappimovie')
             ],[
