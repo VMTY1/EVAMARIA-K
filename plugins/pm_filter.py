@@ -716,6 +716,19 @@ async def auto_filter(client, msg, spoll=False):
         )
     else:
         cap = f"<b>𝗛𝗘𝗬👋 {message.from_user.mention} 😻\n\n📁𝙌𝙪𝙚𝙧𝙮 : {search}\n\n🗂️𝙉𝙤. 𝙊𝙛 𝙁𝙞𝙡𝙚𝙨 ›<code>{total_results}</code>\n\n✍️ 𝙉𝙊𝙏𝙀 : ⚠️𝙏𝙝𝙞𝙨 𝙈𝙚𝙨𝙨𝙖𝙜𝙚 𝙒𝙞𝙡𝙡 𝘽𝙚 𝘼𝙪𝙩𝙤-𝙙𝙚𝙡𝙚𝙩𝙚𝙙 𝙒𝙞𝙩𝙝𝙞𝙣 5 𝙈𝙞𝙣𝙨..❗️</b>"
+    if imdb and imdb.get('poster'):
+        try:
+            hoi = await message.reply_text(text=cap,reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600)
+            hoi.delete()
+        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            haha = await message.reply_text(text=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600)
+            haha.delete()
+        except Exception as e:
+            logger.exception(e)
             koi = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600)
             koi.delete()
