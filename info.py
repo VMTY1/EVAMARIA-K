@@ -1,5 +1,6 @@
 import re
 from os import environ
+from logging import WARNING, getLogger
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -9,7 +10,9 @@ def is_enabled(value, default):
         return False
     else:
         return default
-
+        
+getLogger("pyrogram").setLevel(WARNING)
+LOGGER = getLogger(__name__)
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
