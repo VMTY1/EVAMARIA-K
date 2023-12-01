@@ -429,6 +429,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('💫ᴍᴀɴᴜᴀʟ ꜰɪʟᴛᴇʀ💫', callback_data='manuelfilter'),
             InlineKeyboardButton('⚙️ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ⚙️', callback_data='autofilter')
         ], [
+            InlineKeyboardButton('📜ʀᴜʟᴇꜱ📜', callback_data='more1'),
+            InlineKeyboardButton('⚙️ꜱᴇᴛᴛɪɴɢꜱ⚙️', callback_data='more2')
+        ], [
             InlineKeyboardButton('⚡️ᴄᴏɴɴᴇᴄᴛɪᴏɴ⚡️', callback_data='coct'),
             InlineKeyboardButton('📍ᴇxᴛʀᴀ ᴍᴏᴅꜱ📍', callback_data='extra')
         ], [
@@ -545,6 +548,37 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "more1":
+        buttons = [[
+            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
+        ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.MORE1_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "more2":
+        buttons = [[
+            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
+        ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.MORE2_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
     elif query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
