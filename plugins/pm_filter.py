@@ -436,7 +436,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📍ᴇxᴛʀᴀ ᴍᴏᴅꜱ📍', callback_data='extra')
         ], [
             InlineKeyboardButton('🏡ʜᴏᴍᴇ🏡', callback_data='start'),
-            InlineKeyboardButton('🤍ꜱᴛᴀᴛᴜꜱ🤍', callback_data='stats')
+            InlineKeyboardButton('🚧Sᴛᴀᴛᴜs🚧', callback_data='stats')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -446,11 +446,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ'),
-            InlineKeyboardButton('👨‍💻ꜱᴏᴜʀᴄᴇ👨‍💻', callback_data='source')
-        ], [
-            InlineKeyboardButton('🏡ʜᴏᴍᴇ🏡', callback_data='start'),
-            InlineKeyboardButton('❌️ᴄʟᴏꜱᴇ❌️', callback_data='close_data')
+            InlineKeyboardButton('⚔️Sᴏᴜʀᴄᴇ Cᴏᴅᴇ⚔️', callback_data='source'),
+            InlineKeyboardButton('🚧Sᴛᴀᴛᴜs🚧', callback_data='stats')
+        ],[
+            InlineKeyboardButton('🧧ꜱᴜᴩᴩᴏʀᴛ🧧', callback_data='group_info')
+            InlineKeyboardButton('💸ᴅᴏɴᴀᴛɪᴏɴ💸', callback_data='donation')
+        ],[
+            InlineKeyboardButton('🏡Hᴏᴍᴇ🏡', callback_data='start'),
+            InlineKeyboardButton('✘Cʟᴏsᴇ✘', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
