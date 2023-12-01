@@ -582,7 +582,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.MORE2_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-            
+        )    
     elif query.data == "group_info":
         buttons = [[
             InlineKeyboardButton('🪄ᴀʟʟ ᴏᴜʀ ʟɪɴᴋꜱ🪄', url="t.me/KOM_LINKS")
