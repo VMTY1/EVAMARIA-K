@@ -557,11 +557,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
 
         reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
         await query.message.edit_text(
             text=script.MORE1_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -572,12 +567,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
         ]]
 
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
+        reply_markup = InlineKeyboardMarkup(buttons)        
         await query.message.edit_text(
             text=script.MORE2_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -597,11 +587,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
        ],[ 
             InlineKeyboardButton('⌫ ʙᴀᴄᴋ', callback_data='start')
         ]]
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.SUPPORT_TXT,
@@ -616,12 +601,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='about')
         ]]
 
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
+        reply_markup = InlineKeyboardMarkup(buttons)     
         await query.message.edit_text(
             text=script.DON_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
