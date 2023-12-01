@@ -579,6 +579,52 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.MORE2_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
+            
+    elif query.data == "group_info":
+        buttons = [[
+            InlineKeyboardButton('🪄ᴀʟʟ ᴏᴜʀ ʟɪɴᴋꜱ🪄', url="t.me/KOM_LINKS")
+       ],[
+            InlineKeyboardButton('🎬ɢʀᴏᴜᴘ🎬', url="t.me/KOM_GROUPS"),
+            InlineKeyboardButton('🏅ᴄʜᴀɴɴᴇʟ🏅', url="t.me/KOMOFFICIAL")
+       ],[
+            InlineKeyboardButton('📣ʙᴏᴛ ᴜᴩᴅᴀᴛᴇꜱ📣', url="t.me/KOMBOTZZ"),
+            InlineKeyboardButton('🤖ꜱᴜᴘᴘᴏʀᴛ🤖', url="https://t.me/KOMBOTZZSUPPORT")
+       ],[
+            InlineKeyboardButton('ʀᴇᴩᴏʀᴛ ʙᴜɢ & ꜰᴇᴇᴅʙᴀᴄᴋ', url="t.me/Komassistantbot")
+       ],[ 
+            InlineKeyboardButton('⌫ ʙᴀᴄᴋ', callback_data='start')
+        ]]
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.SUPPORT_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
+    elif query.data == "donation":
+        buttons = [[
+            InlineKeyboardButton('⚔️Bᴏᴛ Oᴡɴᴇʀ⚔️', url="t.me/Komassistantbot")
+        ],[
+            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='about')
+        ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.DON_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
     elif query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
