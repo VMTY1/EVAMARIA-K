@@ -73,6 +73,21 @@ ___________👨‍💻ᴄʀᴇᴅɪᴛꜱ👨‍💻___________
 <a href='https://t.me/LUTTAPPIxTG'>『🍁』༺⋆ͥ⋆ͣ⋆᭄ͫ⁣𓆩𝙻𝚄𝚃𝚃𝙰𝙿𝙿𝙸𓆪➳࿐𝆺𝅥⃝🇧🇷</a></b>
 <a href='https://t.me/KOMBOTZZ'>ᴋᴏᴍ ʙᴏᴛꜱ</a></b>"""
     
+    SUPPORT_TXT = """
+<b>⍟ Cʜᴀɴɴᴇʟs & Gʀᴏᴜᴘs Mᴏᴅᴜʟᴇ ⍟
+
+🎬 Cᴏᴍᴘʟᴇᴛᴇ Mᴏᴠɪᴇ Rᴇǫᴜᴇsᴛɪɴɢ Gʀᴏᴜᴘ.
+🚦 Aʟʟ Lᴀɴɢᴜᴀɢᴇs Mᴏᴠɪᴇs & Sᴇʀɪᴇs.
+🗣️ Bᴏᴛ Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ.
+📢 Bᴏᴛ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ.</b>"""
+    DON_TXT = """<b>ʜɪ🌝,
+                 
+›ᴅᴏɴᴀᴛᴇ ᴍᴏɴᴇy ᴛᴏ ʀᴜɴ ᴛʜɪꜱ ʙᴏᴛ ᴡɪᴛʜ ᴏᴜᴛ ᴀɴy ɪɴᴛʀᴜᴩᴛɪᴏɴ ᴀɴᴅ ᴛᴏ ᴀᴅᴅ ᴍᴏʀᴇ ᴩᴏᴡᴇʀꜰᴜʟ ꜰᴇᴀᴛᴜʀᴇꜱ ᴛᴏ ᴛʜɪꜱ ʙᴏᴛ ʜᴇʟᴩ ᴜꜱ ❗️
+
+›ꜱᴇʀᴠᴇʀꜱ ᴀʀᴇ ʀᴜɴɴɪɴɢ ᴏᴜᴛ🥲
+
+›ᴏᴡɴᴇʀ😻» @KOMASSISTANTBOT</b>"""
+    
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
