@@ -464,16 +464,6 @@ async def settings(client, message):
             ],
             [
                 InlineKeyboardButton(
-                    '𝗜𝗠𝗗𝗕',
-                    callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
-                ),
-                InlineKeyboardButton(
-                    '✅ 𝗬𝗲𝘀' if settings["imdb"] else '❌ 𝗡𝗼',
-                    callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
-                ),
-            ],
-            [
-                InlineKeyboardButton(
                     '𝗦𝗽𝗲𝗹𝗹 𝗖𝗵𝗲𝗰𝗸',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
