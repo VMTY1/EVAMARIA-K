@@ -412,7 +412,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🪄sᴇᴀʀᴄʜ🪄', switch_inline_query_current_chat=''),
             InlineKeyboardButton('📣ᴜᴩᴅᴀᴛᴇꜱ📣', url='https://t.me/KOMBOTZZ')
             ],[
-            InlineKeyboardButton('🌝ᴏᴡɴᴇʀ ɪɴғᴏ🌝', url='https://t.me/luttappimovie')
+            InlineKeyboardButton('🌝ᴏᴡɴᴇʀ ɪɴғᴏ🌝', callback_data="owner_info")
             ],[
             InlineKeyboardButton('⚙️ʜᴇʟᴩ⚙️', callback_data='help'),
             InlineKeyboardButton('📍ᴀʙᴏᴜᴛ📍', callback_data='about')
@@ -427,7 +427,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('💫ᴍᴀɴᴜᴀʟ ꜰɪʟᴛᴇʀ💫', callback_data='manuelfilter'),
-            InlineKeyboardButton('⚙️ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ⚙️', callback_data='autofilter')
+            InlineKeyboardButton('🪩ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ🪩', callback_data='autofilter')
         ], [
             InlineKeyboardButton('📜ʀᴜʟᴇꜱ📜', callback_data='more1'),
             InlineKeyboardButton('⚙️ꜱᴇᴛᴛɪɴɢꜱ⚙️', callback_data='more2')
@@ -564,7 +564,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "more2":
         buttons = [[
-            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('⚡️Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ⚡️', url=f'http://t.me/{temp.U_NAME}?startgroup=Bots4Sale&admin=invite_users+manage_chat')
+        ],[
+            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help'),
+            InlineKeyboardButton('📜ʀᴜʟᴇꜱ📜', callback_data='more1')
         ]]
 
         reply_markup = InlineKeyboardMarkup(buttons)        
@@ -607,7 +610,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-        
+
+    elif query.data == "owner_info":
+            btn = [[
+                    InlineKeyboardButton("⌫ ʙᴀᴄᴋ", callback_data="start"),
+                    InlineKeyboardButton("☎️Cᴏɴᴛᴀᴄᴛ☎️", url="t.me/LUTTAPPIxTG")
+                  ]]
+            reply_markup = InlineKeyboardMarkup(btn)
+            await query.message.edit_text(
+                text=(script.OWNER_INFO),
+                reply_markup=reply_markup,
+                parse_mode=enums.ParseMode.HTML
+            )
     elif query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
